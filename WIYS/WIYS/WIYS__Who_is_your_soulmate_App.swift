@@ -9,12 +9,15 @@ import SwiftUI
 
 @main
 struct WIYS__Who_is_your_soulmate_App: App {
-    let persistenceController = PersistenceController.shared
+    @StateObject private var appViewModel = AppViewModel(
+        authService: MockAuthService(),
+        soulmateService: MockSoulmateService()
+    )
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(appViewModel)
         }
     }
 }
