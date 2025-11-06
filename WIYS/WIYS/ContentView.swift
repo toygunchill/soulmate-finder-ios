@@ -31,6 +31,7 @@ struct ContentView: View {
 struct AuthenticationView: View {
     @EnvironmentObject private var appViewModel: AppViewModel
     @State private var showEmailSheet = false
+    @State private var showRegisterSheet = false
 
     private var backgroundGradient: LinearGradient {
         LinearGradient(
@@ -71,6 +72,11 @@ struct AuthenticationView: View {
                     }
                     AuthButton(title: "E-posta ile giriş yap", systemImage: "envelope", style: .translucent) {
                         showEmailSheet = true
+                        showRegisterSheet = false
+                    }
+                    AuthButton(title: "E-posta ile kayıt ol", systemImage: "person.badge.plus", style: .translucent) {
+                        showRegisterSheet = true
+                        showEmailSheet = false
                     }
                 }
                 .padding(.horizontal)
@@ -94,6 +100,13 @@ struct AuthenticationView: View {
                 appViewModel.signIn(using: .email(email: email, password: password))
             }
             .presentationDetents([.fraction(0.5)])
+            .background(Color(.systemBackground))
+        }
+        .sheet(isPresented: $showRegisterSheet) {
+            EmailRegisterSheet { email, password in
+                appViewModel.register(email: email, password: password)
+            }
+            .presentationDetents([.fraction(0.6)])
             .background(Color(.systemBackground))
         }
     }
@@ -131,6 +144,55 @@ struct EmailLoginSheet: View {
                         onSubmit(email, password)
                     }
                     .disabled(email.isEmpty || password.isEmpty)
+                }
+            }
+        }
+    }
+}
+
+struct EmailRegisterSheet: View {
+    @Environment(\.dismiss) private var dismiss
+
+    @State private var email: String = ""
+    @State private var password: String = ""
+    @State private var confirmPassword: String = ""
+
+    let onSubmit: (String, String) -> Void
+
+    private var isFormValid: Bool {
+        !email.isEmpty && !password.isEmpty && password == confirmPassword
+    }
+
+    var body: some View {
+        NavigationStack {
+            Form {
+                Section(header: Text("E-posta")) {
+                    TextField("ornek@mail.com", text: $email)
+                        .keyboardType(.emailAddress)
+                        .textInputAutocapitalization(.never)
+                }
+
+                Section(header: Text("Şifre")) {
+                    SecureField("••••••••", text: $password)
+                    SecureField("Şifreyi tekrar girin", text: $confirmPassword)
+                    if !confirmPassword.isEmpty && password != confirmPassword {
+                        Text("Şifreler eşleşmiyor")
+                            .font(.footnote)
+                            .foregroundStyle(.red)
+                    }
+                }
+            }
+            .navigationTitle("Kayıt ol")
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Kapat") { dismiss() }
+                }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Devam") {
+                        dismiss()
+                        onSubmit(email, password)
+                    }
+                    .disabled(!isFormValid)
                 }
             }
         }
@@ -365,6 +427,7 @@ struct SelectableTag: View {
                 : AnyShapeStyle(Color(.systemBackground))
             )
 
+            .background(isSelected ? LinearGradient(colors: [Color(hex: "#F28FAD"), Color(hex: "#8EC5FC")], startPoint: .leading, endPoint: .trailing) : Color(.systemBackground))
             .foregroundStyle(isSelected ? Color.white : Color.primary)
             .clipShape(Capsule())
             .overlay(

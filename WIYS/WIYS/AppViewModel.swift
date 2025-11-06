@@ -44,6 +44,25 @@ final class AppViewModel: ObservableObject {
         }
     }
 
+    func register(email: String, password: String) {
+        guard !isProcessing else { return }
+        isProcessing = true
+        errorMessage = nil
+
+        authService.register(email: email, password: password) { [weak self] result in
+            guard let self else { return }
+            self.isProcessing = false
+
+            switch result {
+            case .success(let session):
+                self.session = session
+                self.appFlow = .profileSetup
+            case .failure(let error):
+                self.errorMessage = error.localizedDescription
+            }
+        }
+    }
+
     func startAppleSignIn() {
         guard !isProcessing else { return }
         isProcessing = true

@@ -2,6 +2,7 @@ import Foundation
 
 protocol AuthService {
     func signIn(using method: AuthMethod, completion: @escaping (Result<AuthSession, AuthError>) -> Void)
+    func register(email: String, password: String, completion: @escaping (Result<AuthSession, AuthError>) -> Void)
     func logout()
 }
 
@@ -26,6 +27,19 @@ final class MockAuthService: AuthService {
                 self.activeSession = session
                 completion(.success(session))
             }
+        }
+    }
+
+    func register(email: String, password: String, completion: @escaping (Result<AuthSession, AuthError>) -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            guard !email.isEmpty, !password.isEmpty else {
+                completion(.failure(.invalidCredentials))
+                return
+            }
+
+            let session = AuthSession(id: UUID(), displayName: email.components(separatedBy: "@").first ?? "Sen")
+            self.activeSession = session
+            completion(.success(session))
         }
     }
 
