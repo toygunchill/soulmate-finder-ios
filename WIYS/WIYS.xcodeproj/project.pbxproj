@@ -12,37 +12,37 @@
 			containerPortal = 21F700BD2EBC9F260013AA99 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 21F700C42EBC9F260013AA99;
-			remoteInfo = "WIYS: Who is your soulmate?";
+			remoteInfo = "WIYS";
 		};
 		21F700E22EBC9F280013AA99 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 21F700BD2EBC9F260013AA99 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 21F700C42EBC9F260013AA99;
-			remoteInfo = "WIYS: Who is your soulmate?";
+			remoteInfo = "WIYS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		21F700C52EBC9F260013AA99 /* WIYS: Who is your soulmate?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WIYS: Who is your soulmate?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		21F700D72EBC9F280013AA99 /* WIYS: Who is your soulmate?Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WIYS: Who is your soulmate?Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		21F700E12EBC9F280013AA99 /* WIYS: Who is your soulmate?UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WIYS: Who is your soulmate?UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21F700C52EBC9F260013AA99 /* WIYS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WIYS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21F700D72EBC9F280013AA99 /* WIYSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WIYSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21F700E12EBC9F280013AA99 /* WIYSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WIYSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		21F700C72EBC9F260013AA99 /* WIYS: Who is your soulmate? */ = {
+		21F700C72EBC9F260013AA99 /* WIYS */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "WIYS: Who is your soulmate?";
+			path = "WIYS";
 			sourceTree = "<group>";
 		};
-		21F700DA2EBC9F280013AA99 /* WIYS: Who is your soulmate?Tests */ = {
+		21F700DA2EBC9F280013AA99 /* WIYSTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "WIYS: Who is your soulmate?Tests";
+			path = "WIYSTests";
 			sourceTree = "<group>";
 		};
-		21F700E42EBC9F280013AA99 /* WIYS: Who is your soulmate?UITests */ = {
+		21F700E42EBC9F280013AA99 /* WIYSUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "WIYS: Who is your soulmate?UITests";
+			path = "WIYSUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,9 +75,9 @@
 		21F700BC2EBC9F260013AA99 = {
 			isa = PBXGroup;
 			children = (
-				21F700C72EBC9F260013AA99 /* WIYS: Who is your soulmate? */,
-				21F700DA2EBC9F280013AA99 /* WIYS: Who is your soulmate?Tests */,
-				21F700E42EBC9F280013AA99 /* WIYS: Who is your soulmate?UITests */,
+				21F700C72EBC9F260013AA99 /* WIYS */,
+				21F700DA2EBC9F280013AA99 /* WIYSTests */,
+				21F700E42EBC9F280013AA99 /* WIYSUITests */,
 				21F700C62EBC9F260013AA99 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,9 +85,9 @@
 		21F700C62EBC9F260013AA99 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				21F700C52EBC9F260013AA99 /* WIYS: Who is your soulmate?.app */,
-				21F700D72EBC9F280013AA99 /* WIYS: Who is your soulmate?Tests.xctest */,
-				21F700E12EBC9F280013AA99 /* WIYS: Who is your soulmate?UITests.xctest */,
+				21F700C52EBC9F260013AA99 /* WIYS.app */,
+				21F700D72EBC9F280013AA99 /* WIYSTests.xctest */,
+				21F700E12EBC9F280013AA99 /* WIYSUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,9 +95,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		21F700C42EBC9F260013AA99 /* WIYS: Who is your soulmate? */ = {
+		21F700C42EBC9F260013AA99 /* WIYS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 21F700EB2EBC9F280013AA99 /* Build configuration list for PBXNativeTarget "WIYS: Who is your soulmate?" */;
+			buildConfigurationList = 21F700EB2EBC9F280013AA99 /* Build configuration list for PBXNativeTarget "WIYS" */;
 			buildPhases = (
 				21F700C12EBC9F260013AA99 /* Sources */,
 				21F700C22EBC9F260013AA99 /* Frameworks */,
@@ -108,18 +108,18 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				21F700C72EBC9F260013AA99 /* WIYS: Who is your soulmate? */,
+				21F700C72EBC9F260013AA99 /* WIYS */,
 			);
-			name = "WIYS: Who is your soulmate?";
+			name = "WIYS";
 			packageProductDependencies = (
 			);
-			productName = "WIYS: Who is your soulmate?";
-			productReference = 21F700C52EBC9F260013AA99 /* WIYS: Who is your soulmate?.app */;
+			productName = "WIYS";
+			productReference = 21F700C52EBC9F260013AA99 /* WIYS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		21F700D62EBC9F280013AA99 /* WIYS: Who is your soulmate?Tests */ = {
+		21F700D62EBC9F280013AA99 /* WIYSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 21F700EE2EBC9F280013AA99 /* Build configuration list for PBXNativeTarget "WIYS: Who is your soulmate?Tests" */;
+			buildConfigurationList = 21F700EE2EBC9F280013AA99 /* Build configuration list for PBXNativeTarget "WIYSTests" */;
 			buildPhases = (
 				21F700D32EBC9F280013AA99 /* Sources */,
 				21F700D42EBC9F280013AA99 /* Frameworks */,
@@ -131,18 +131,18 @@
 				21F700D92EBC9F280013AA99 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				21F700DA2EBC9F280013AA99 /* WIYS: Who is your soulmate?Tests */,
+				21F700DA2EBC9F280013AA99 /* WIYSTests */,
 			);
-			name = "WIYS: Who is your soulmate?Tests";
+			name = "WIYSTests";
 			packageProductDependencies = (
 			);
-			productName = "WIYS: Who is your soulmate?Tests";
-			productReference = 21F700D72EBC9F280013AA99 /* WIYS: Who is your soulmate?Tests.xctest */;
+			productName = "WIYSTests";
+			productReference = 21F700D72EBC9F280013AA99 /* WIYSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		21F700E02EBC9F280013AA99 /* WIYS: Who is your soulmate?UITests */ = {
+		21F700E02EBC9F280013AA99 /* WIYSUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 21F700F12EBC9F280013AA99 /* Build configuration list for PBXNativeTarget "WIYS: Who is your soulmate?UITests" */;
+			buildConfigurationList = 21F700F12EBC9F280013AA99 /* Build configuration list for PBXNativeTarget "WIYSUITests" */;
 			buildPhases = (
 				21F700DD2EBC9F280013AA99 /* Sources */,
 				21F700DE2EBC9F280013AA99 /* Frameworks */,
@@ -154,13 +154,13 @@
 				21F700E32EBC9F280013AA99 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				21F700E42EBC9F280013AA99 /* WIYS: Who is your soulmate?UITests */,
+				21F700E42EBC9F280013AA99 /* WIYSUITests */,
 			);
-			name = "WIYS: Who is your soulmate?UITests";
+			name = "WIYSUITests";
 			packageProductDependencies = (
 			);
-			productName = "WIYS: Who is your soulmate?UITests";
-			productReference = 21F700E12EBC9F280013AA99 /* WIYS: Who is your soulmate?UITests.xctest */;
+			productName = "WIYSUITests";
+			productReference = 21F700E12EBC9F280013AA99 /* WIYSUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -186,7 +186,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 21F700C02EBC9F260013AA99 /* Build configuration list for PBXProject "WIYS: Who is your soulmate?" */;
+			buildConfigurationList = 21F700C02EBC9F260013AA99 /* Build configuration list for PBXProject "WIYS" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -200,9 +200,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				21F700C42EBC9F260013AA99 /* WIYS: Who is your soulmate? */,
-				21F700D62EBC9F280013AA99 /* WIYS: Who is your soulmate?Tests */,
-				21F700E02EBC9F280013AA99 /* WIYS: Who is your soulmate?UITests */,
+				21F700C42EBC9F260013AA99 /* WIYS */,
+				21F700D62EBC9F280013AA99 /* WIYSTests */,
+				21F700E02EBC9F280013AA99 /* WIYSUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -258,12 +258,12 @@
 /* Begin PBXTargetDependency section */
 		21F700D92EBC9F280013AA99 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 21F700C42EBC9F260013AA99 /* WIYS: Who is your soulmate? */;
+			target = 21F700C42EBC9F260013AA99 /* WIYS */;
 			targetProxy = 21F700D82EBC9F280013AA99 /* PBXContainerItemProxy */;
 		};
 		21F700E32EBC9F280013AA99 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 21F700C42EBC9F260013AA99 /* WIYS: Who is your soulmate? */;
+			target = 21F700C42EBC9F260013AA99 /* WIYS */;
 			targetProxy = 21F700E22EBC9F280013AA99 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -411,7 +411,8 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.toyguncil.WIYS--Who-is-your-soulmate-";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_KEY_CFBundleDisplayName = "Who is your soulmate?";
+				PRODUCT_NAME = WIYS;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -439,7 +440,8 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.toyguncil.WIYS--Who-is-your-soulmate-";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_KEY_CFBundleDisplayName = "Who is your soulmate?";
+				PRODUCT_NAME = WIYS;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -461,7 +463,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WIYS: Who is your soulmate?.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WIYS: Who is your soulmate?";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WIYS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WIYS";
 			};
 			name = Debug;
 		};
@@ -480,7 +482,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WIYS: Who is your soulmate?.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WIYS: Who is your soulmate?";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WIYS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WIYS";
 			};
 			name = Release;
 		};
@@ -497,7 +499,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "WIYS: Who is your soulmate?";
+				TEST_TARGET_NAME = "WIYS";
 			};
 			name = Debug;
 		};
@@ -514,14 +516,14 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "WIYS: Who is your soulmate?";
+				TEST_TARGET_NAME = "WIYS";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		21F700C02EBC9F260013AA99 /* Build configuration list for PBXProject "WIYS: Who is your soulmate?" */ = {
+		21F700C02EBC9F260013AA99 /* Build configuration list for PBXProject "WIYS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				21F700E92EBC9F280013AA99 /* Debug */,
@@ -530,7 +532,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		21F700EB2EBC9F280013AA99 /* Build configuration list for PBXNativeTarget "WIYS: Who is your soulmate?" */ = {
+		21F700EB2EBC9F280013AA99 /* Build configuration list for PBXNativeTarget "WIYS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				21F700EC2EBC9F280013AA99 /* Debug */,
@@ -539,7 +541,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		21F700EE2EBC9F280013AA99 /* Build configuration list for PBXNativeTarget "WIYS: Who is your soulmate?Tests" */ = {
+		21F700EE2EBC9F280013AA99 /* Build configuration list for PBXNativeTarget "WIYSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				21F700EF2EBC9F280013AA99 /* Debug */,
@@ -548,7 +550,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		21F700F12EBC9F280013AA99 /* Build configuration list for PBXNativeTarget "WIYS: Who is your soulmate?UITests" */ = {
+		21F700F12EBC9F280013AA99 /* Build configuration list for PBXNativeTarget "WIYSUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				21F700F22EBC9F280013AA99 /* Debug */,
