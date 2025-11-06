@@ -364,7 +364,13 @@ struct SelectableTag: View {
                     .padding(.horizontal, 14)
             }
             .frame(maxWidth: .infinity)
-            .background(isSelected ? LinearGradient(colors: [Color(hex: "#F28FAD"), Color(hex: "#8EC5FC")], startPoint: .leading, endPoint: .trailing) : Color(.systemBackground))
+            .background(
+                isSelected
+                ? AnyShapeStyle(LinearGradient(colors: [Color(hex: "#F28FAD"), Color(hex: "#8EC5FC")],
+                                               startPoint: .leading, endPoint: .trailing))
+                : AnyShapeStyle(Color(.systemBackground))
+            )
+
             .foregroundStyle(isSelected ? Color.white : Color.primary)
             .clipShape(Capsule())
             .overlay(
