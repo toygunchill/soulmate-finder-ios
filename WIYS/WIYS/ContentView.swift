@@ -426,8 +426,6 @@ struct SelectableTag: View {
                                                startPoint: .leading, endPoint: .trailing))
                 : AnyShapeStyle(Color(.systemBackground))
             )
-
-            .background(isSelected ? LinearGradient(colors: [Color(hex: "#F28FAD"), Color(hex: "#8EC5FC")], startPoint: .leading, endPoint: .trailing) : Color(.systemBackground))
             .foregroundStyle(isSelected ? Color.white : Color.primary)
             .clipShape(Capsule())
             .overlay(
