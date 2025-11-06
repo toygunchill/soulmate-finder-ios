@@ -16,21 +16,16 @@ final class MockAuthService: AuthService {
 
     func signIn(using method: AuthMethod, completion: @escaping (Result<AuthSession, AuthError>) -> Void) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            let session: AuthSession
             switch method {
-            case .apple:
-                session = AuthSession(id: UUID(), displayName: "Apple User")
-            case .google:
-                session = AuthSession(id: UUID(), displayName: "Google Explorer")
             case .email(let email, let password):
                 guard !email.isEmpty, !password.isEmpty else {
                     completion(.failure(.invalidCredentials))
                     return
                 }
-                session = AuthSession(id: UUID(), displayName: email.components(separatedBy: "@").first ?? "Sen")
+                let session = AuthSession(id: UUID(), displayName: email.components(separatedBy: "@").first ?? "Sen")
+                self.activeSession = session
+                completion(.success(session))
             }
-            self.activeSession = session
-            completion(.success(session))
         }
     }
 

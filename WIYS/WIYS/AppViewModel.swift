@@ -1,5 +1,7 @@
 import Foundation
 import SwiftUI
+import AuthenticationServices
+import UIKit
 
 @MainActor
 final class AppViewModel: ObservableObject {
@@ -14,6 +16,7 @@ final class AppViewModel: ObservableObject {
 
     private let authService: AuthService
     private let soulmateService: SoulmateService
+    private var appleSignInCoordinator: AppleSignInCoordinator?
 
     init(authService: AuthService, soulmateService: SoulmateService) {
         self.authService = authService
@@ -39,6 +42,36 @@ final class AppViewModel: ObservableObject {
                 self.errorMessage = error.localizedDescription
             }
         }
+    }
+
+    func startAppleSignIn() {
+        guard !isProcessing else { return }
+        isProcessing = true
+        errorMessage = nil
+
+        let request = ASAuthorizationAppleIDProvider().createRequest()
+        request.requestedScopes = [.fullName, .email]
+
+        let controller = ASAuthorizationController(authorizationRequests: [request])
+        let coordinator = AppleSignInCoordinator { [weak self] result in
+            guard let self else { return }
+            self.appleSignInCoordinator = nil
+            switch result {
+            case .success(let session):
+                self.session = session
+                self.appFlow = self.userProfile == nil ? .profileSetup : .main
+                self.isProcessing = false
+            case .failure(let error):
+                self.isProcessing = false
+                if error != .cancelled {
+                    self.errorMessage = error.localizedDescription
+                }
+            }
+        }
+        controller.delegate = coordinator
+        controller.presentationContextProvider = coordinator
+        appleSignInCoordinator = coordinator
+        controller.performRequests()
     }
 
     func completeProfile(_ profile: UserProfile) {
@@ -96,5 +129,59 @@ final class AppViewModel: ObservableObject {
         soulmateHistory = []
         currentVisual = nil
         currentMatchResult = nil
+    }
+}
+
+private final class AppleSignInCoordinator: NSObject, ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
+    private let completion: (Result<AuthSession, AuthError>) -> Void
+
+    init(completion: @escaping (Result<AuthSession, AuthError>) -> Void) {
+        self.completion = completion
+    }
+
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        guard
+            let windowScene = UIApplication.shared.connectedScenes
+                .compactMap({ $0 as? UIWindowScene })
+                .first(where: { $0.activationState == .foregroundActive }),
+            let window = windowScene.windows.first(where: { $0.isKeyWindow })
+        else {
+            return ASPresentationAnchor()
+        }
+        return window
+    }
+
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        guard let credential = authorization.credential as? ASAuthorizationAppleIDCredential else {
+            completion(.failure(.generic))
+            return
+        }
+
+        let displayNameComponents = [credential.fullName?.givenName, credential.fullName?.familyName]
+            .compactMap { $0 }
+            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+            .filter { !$0.isEmpty }
+
+        let resolvedName: String
+        if !displayNameComponents.isEmpty {
+            resolvedName = displayNameComponents.joined(separator: " ")
+        } else if let emailHandle = credential.email?.split(separator: "@").first {
+            resolvedName = String(emailHandle)
+        } else {
+            resolvedName = "Apple Kullanıcısı"
+        }
+
+        let session = AuthSession(id: UUID(), displayName: resolvedName)
+        completion(.success(session))
+    }
+
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        let nsError = error as NSError
+        if nsError.domain == ASAuthorizationError.errorDomain,
+           nsError.code == ASAuthorizationError.canceled.rawValue {
+            completion(.failure(.cancelled))
+        } else {
+            completion(.failure(.generic))
+        }
     }
 }

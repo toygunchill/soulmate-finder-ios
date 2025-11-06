@@ -59,8 +59,6 @@ struct SoulmateMatchResult: Identifiable, Equatable {
 }
 
 enum AuthMethod {
-    case apple
-    case google
     case email(email: String, password: String)
 }
 
@@ -75,7 +73,7 @@ struct AuthSession: Equatable {
     let displayName: String
 }
 
-enum AuthError: LocalizedError {
+enum AuthError: LocalizedError, Equatable {
     case invalidCredentials
     case cancelled
     case generic

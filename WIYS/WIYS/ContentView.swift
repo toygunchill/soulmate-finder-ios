@@ -67,10 +67,7 @@ struct AuthenticationView: View {
 
                 VStack(spacing: 14) {
                     AuthButton(title: "Apple ile devam et", systemImage: "apple.logo", style: .solidWhite) {
-                        appViewModel.signIn(using: .apple)
-                    }
-                    AuthButton(title: "Google ile devam et", systemImage: "g.circle", style: .outlinedLight) {
-                        appViewModel.signIn(using: .google)
+                        appViewModel.startAppleSignIn()
                     }
                     AuthButton(title: "E-posta ile giriş yap", systemImage: "envelope", style: .translucent) {
                         showEmailSheet = true
@@ -143,7 +140,6 @@ struct EmailLoginSheet: View {
 struct AuthButton: View {
     enum Style {
         case solidWhite
-        case outlinedLight
         case translucent
     }
 
@@ -175,8 +171,6 @@ struct AuthButton: View {
         switch style {
         case .solidWhite:
             return AnyShapeStyle(Color.white)
-        case .outlinedLight:
-            return AnyShapeStyle(Color.white.opacity(0.12))
         case .translucent:
             return AnyShapeStyle(Color.white.opacity(0.08))
         }
@@ -195,7 +189,7 @@ struct AuthButton: View {
         switch style {
         case .solidWhite:
             return .clear
-        default:
+        case .translucent:
             return .white.opacity(0.6)
         }
     }
